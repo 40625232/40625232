@@ -1,4 +1,4 @@
-﻿
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,19 +159,16 @@
 </style>
 </head>
 
-<table  >
-
-   <caption>生物科技簽到狀況</caption>
+<table>
    <tr>
-<th>操作</th>
+       <th>操作</th>
        <th>學號</th>
+       <th>時間</th>
+   </tr>
+   
 
-	   <th>簽到狀況</th>
-	
-</tr>
-
-</table>
-
+       
+       
 
 
 
@@ -327,7 +324,7 @@
    "returnFaceLandmarks": "false",
   };
 
-  speakMsg('正在使用此簽到系統辨識身份...');
+  speakMsg('正在使用此畫面辨識您的身份...');
   video.pause();
 
   $.ajax({
@@ -372,7 +369,7 @@
       var name = personList[data[0].candidates[0].personId];
       if (name) {
        $.get("/open");
-       speakMsg(name + "簽到成功", "success");
+       speakMsg(name + "您好, 歡迎回來", "success");
        //setTimeout(function(){ $.get("/close"); }, 5000);
       }
       else {
@@ -579,17 +576,17 @@ debugger;
 
   checkGroup(groupID);
  });
-
-
+       
+       var Today=new Date();
        var bro=document.getElementById("bro");
 	   bro.onclick=function (){
        var personName=document.getElementById("personName").value;
-
-	   var table=document.getElementsByTagName("table")[0];
+       
+	   var table =document.getElementsByTagName("table")[0];
 	   table.innerHTML+="<tr>\n"+
-	    "<td><a href='javascript:void(0);'onclick='deltr(this)'>删除</a></td>"+
+	        "<td><a href='javascript:void(0);'onclick='deltr(this)'>删除</a></td>"+
             "<td>"+personName+"</td>"+
-	    "<td>"+1+"</td>"+
+			"<td>"+Today.toLocaleString()+"</td>"+
             "</tr>"
    }
    function deltr(obj){
@@ -600,16 +597,38 @@ debugger;
             table.removeChild(tr);
         }
 
+   
+     
+
+
+
+	
+		
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  </script>
 
-<input type="button" onclick="openNewWindow()" value="電子學"></input>
+<input type="button" onclick="openNewWindow()" value="生物科技"></input>
 	<script type="text/javascript">
 		var newWindow = null;
 		function openNewWindow(){
                         //open a new window by using window.open();
-                        newWindow = window.open("file:///C:/Users/USER/Desktop/111112-%E8%A4%87%E8%A3%BD.html","","width=700,height=400");
+                        newWindow = window.open("file:///C:/Users/USER/Desktop/111112-%E8%A4%87%E8%A3%BD%20-%20%E8%A4%87%E8%A3%BD.html","","width=700,height=400");
 			newWindow.focus();
 		};
 	</script>
